@@ -40,7 +40,7 @@ public class StronglyConnectedComponent {
             }
         }
 
-        //reverse adj - so create a new LinkedList<Integer>[] adj;
+        //create reverse adj - so create a new LinkedList<Integer>[] adj;
 
         LinkedList<Integer>[] adjT = new LinkedList[V];
         for (int i=0; i < V; i++) {
@@ -63,14 +63,13 @@ public class StronglyConnectedComponent {
             st.pop();
             if (!visited[node]) {
                 scc++;
-                dfs3(node, visited, adjT);
+                reverseDFS(node, visited, adjT);
             }
         }
         return scc;
-
     }
 
-    private void dfs3(int node, boolean[] visited, LinkedList<Integer>[] adjT) {
+    private void reverseDFS(int node, boolean[] visited, LinkedList<Integer>[] adjT) {
         visited[node] = true;
 
         ListIterator<Integer> it = adjT[node].listIterator();
@@ -78,7 +77,7 @@ public class StronglyConnectedComponent {
         while (it.hasNext()) {
             Integer nbr = it.next();
             if (!visited[nbr]) {
-                dfs3(nbr, visited, adjT);
+                reverseDFS(nbr, visited, adjT);
             }
         }
 

@@ -4,18 +4,23 @@ import com.example.GraphSeries.Graph;
 
 import java.util.ListIterator;
 
-public class DetectCycleInGraph {
+public class DetectCycleInUndirectedGraph {
 
     public static void main(String[] args) {
 
         Graph graph = new Graph(5);
         graph.addEdge(0, 1);
+        graph.addEdge(1, 0);
         graph.addEdge(1, 2);
+        graph.addEdge(2, 1);
         graph.addEdge(2, 0);
+        graph.addEdge(0, 2);
         graph.addEdge(1, 3);
+        graph.addEdge(3, 1);
         graph.addEdge(3, 4);
+        graph.addEdge(4, 3);
 
-        DetectCycleInGraph d = new DetectCycleInGraph();
+        DetectCycleInUndirectedGraph d = new DetectCycleInUndirectedGraph();
 
         if(isCyclic(graph)) {
             System.out.println("Graph is cyclic");

@@ -23,6 +23,13 @@ public class FindMotherVertex {
         System.out.println(mother);
     }
 
+    /*
+        The idea is to perform DFS from each vertex and keep track of the last visited vertex during the traversal.
+        The last visited vertex in DFS will be a potential mother vertex, as it can reach all other vertices in the graph.
+        After performing DFS from all vertices, you check if the last visited vertex from any DFS traversal covers
+        all vertices. If it does, then that vertex is the mother vertex; otherwise, there is no mother vertex in the graph.
+     */
+
     public int findMother(Graph g) {
         int n = g.V;
         boolean[] visited = new boolean[n];
